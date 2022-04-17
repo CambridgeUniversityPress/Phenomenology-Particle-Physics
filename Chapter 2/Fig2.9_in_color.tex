@@ -1,0 +1,127 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% P3: Phenomenology of Particle Physics                         
+%%
+%% Author:  André Rubbia                   		 
+%%
+%% Figure 2.9 An incident particle that crosses the surface $\d\sigma$ will be scattered in the solid angle $\d \Omega$.
+%%
+%% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+%% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or 
+%% send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[labelfont=bf]{caption}
+\usepackage{upgreek}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{ternary}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{external}
+
+\usepackage{pst-3dplot}
+\usepackage{auto-pst-pdf}
+
+\def\d{\mathrm{d}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%   FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htb]
+\begin{center}
+\centering\mbox{
+\psset{unit=0.75}
+\begin{pspicture}(-4,-4)(4,4)%
+\psset{Alpha=-20,Beta=25}
+%\psset{Alpha=0,Beta=90}
+\pstThreeDSphere[increment=18,SegmentColor={[cmyk]{0,0,0,0}}](-0.1,0,0){4}
+\pstThreeDLine[linecolor=black, linewidth=1pt](-7,0,0)(15,0,0)
+\pstThreeDDot(-0.1,0,0)
+\pstThreeDDot(10,0,0)
+
+% dsigma
+\pscustom[fillstyle=solid,fillcolor=blue]{
+\pstThreeDCircle[beginAngle=70,endAngle=110](10,0,0)(0,1,0)(0,0,1)
+\pstThreeDLine(10,-0.342020,0.939693)(10,-0.68,1.8)
+\pstThreeDCircle[beginAngle=110,endAngle=70](10,0,0)(0,2,0)(0,0,2)
+\pstThreeDLine(10,0.68,1.8)(10,0.342020,0.939693)
+}
+
+% domega
+\pstThreeDCircle(-2.7,0,0)(0,3,0)(0,0,3)
+\pstThreeDCircle(-1.7,0,0)(0,3.7,0)(0,0,3.7)
+
+%\pscustom[fillstyle=solid,fillcolor=gray]{
+%\pstThreeDCircle[beginAngle=-70,endAngle=120](-2.7,0,0)(0,3,0)(0,0,3)
+%\pstThreeDLine(-2.7,-1.02,2.82)(-1.7,-1.26,3.47)
+%\pstThreeDCircle[beginAngle=-70,endAngle=120](-1.7,0,0)(0,3.7,0)(0,0,3.7)
+%\pstThreeDLine(-1.7,1.26,3.47)(-2.7,1.02,2.82)
+%}
+
+\pscustom[fillstyle=solid,fillcolor=blue]{
+\pstThreeDCircle[beginAngle=70,endAngle=110](-2.7,0,0)(0,3,0)(0,0,3)
+\pstThreeDLine(-2.7,-1.02,2.82)(-1.7,-1.26,3.47)
+\pstThreeDCircle[beginAngle=110,endAngle=70](-1.7,0,0)(0,3.7,0)(0,0,3.7)
+\pstThreeDLine(-1.7,1.26,3.47)(-2.7,1.02,2.82)
+}
+\pstThreeDLine[linecolor=blue](-0.1,0,0)(-2.7,-1.02,2.82)
+\pstThreeDLine[linecolor=blue](-0.1,0,0)(-1.7,-1.26,3.47)
+\pstThreeDLine[linecolor=blue](-0.1,0,0)(-2.7,1.02,2.82)
+\pstThreeDLine[linecolor=blue](-0.1,0,0)(-1.7,1.26,3.47)
+
+% trajectory
+\pstThreeDLine[linewidth=2pt,arrowscale=1.5,linecolor=magenta,linearc=6]{->}(15,0,1.5)(0,0,1.5)(-6.25,0,6)
+
+
+%\pstThreeDCircle[linewidth=3pt,linecolor=blue, beginAngle=90,endAngle=60](8,0,0)(0,1.5,0)(0,0,1.5)
+
+%% dsigma
+\pstThreeDSquare(10,-3,-3)(0,6,0)(0,0,6)
+\pstThreeDCircle(10,0,0)(0,1,0)(0,0,1)
+\pstThreeDCircle(10,0,0)(0,2,0)(0,0,2)
+
+% b
+{\psset{arrows=<->,linewidth=1pt,fillstyle=none, linecolor=red}
+\pstThreeDLine(14,0,0)(14,0,1.5)
+}
+
+% phi angle
+{\psset{arrowscale=1.5,arrows=->}
+\psset{linecolor=red,linewidth=1.5pt,beginAngle=0,endAngle=270}
+\pstThreeDEllipse(-6,0,0)(0,0,1)(0,1,0)
+}
+% theta angle
+{\psset{arrowscale=1.5,arrows=->}
+\psset{linecolor=red,linewidth=1.5pt,beginAngle=180,endAngle=120}
+\pstThreeDEllipse(-0.1,0,0)(1,0,0)(0,0,1)
+}
+
+{\psset{arrowscale=1.5,arrows=->}
+\pstThreeDLine[linecolor=black](11,0,3.)(10,0,2)
+\pstThreeDLine[linecolor=black](-0.5,0,5)(-1.5,0,4)
+}
+
+\end{pspicture}
+\setlength{\unitlength}{1cm}
+\put(-14,6.5){$\d\sigma = b\d b\d\phi$}
+\put(-5.5,6.5){$\d\Omega = \d\cos\theta\d\phi$}
+\put(-15.25,4.95){\color{red}$b$}
+\put(-4.15,3.25){\color{red}$\theta$}
+\put(-0.5,3.25){\color{red}$\phi$}
+}
+\caption{An incident particle that crosses the surface
+$\d\sigma$ will be scattered in the solid angle $\d \Omega$.}
+\end{center}
+\end{figure}
+%%%%%%%%%%%%%%%  END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
