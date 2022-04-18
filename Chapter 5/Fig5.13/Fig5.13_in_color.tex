@@ -1,0 +1,71 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% P3: Phenomenology of Particle Physics                         
+%%
+%% Author:  André Rubbia                   		 
+%%
+%% Figure 5.11 Ternary (also Dalitz) plot of a three-body decay.
+%%
+%% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+%% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or 
+%% send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[labelfont=bf]{caption}
+\usepackage{upgreek}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{ternary}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{external}
+
+\def\d{\mathrm{d}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%   FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htb]
+\centering
+\begin{tikzpicture}[scale=1]
+\begin{axis}[    title=$M\rightarrow $ 3 massless,
+	xlabel=$m^2_{12}$~(GeV$^2$),
+	ylabel=$m^2_{23}$~(GeV$^2$)]
+    \addplot+[only marks, blue, mark=o] table [x=XM212, y=XM223] {dalitz_3zero.dat};
+    \end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}[scale=1]
+\begin{axis}[    title=$M\rightarrow $ 3 massive,
+	ymin=0, ymax=11000,
+	xlabel=$m^2_{12}$~(GeV$^2$),
+	ylabel=$m^2_{23}$~(GeV$^2$)]
+    \addplot+[only marks, blue, mark=o] table [x=XM212, y=XM223] {dalitz_1_10_30.dat};
+    \draw[dashed,very thick] (axis cs:1000,1600) -- (axis cs:4000,1600);
+    \node[left] at (axis cs:1000,1600) {\tiny $(m_2+m_3)^2$};
+    \draw[dashed,very thick] (axis cs:121,4000) -- (axis cs:121,10500);
+    \node at (axis cs:250,10500) {\tiny $(m_1+m_2)^2$};
+    \draw[dashed,very thick] (axis cs:0,9801) -- (axis cs:1000,9801);
+    \node[right] at (axis cs:1000,9801) {\tiny $(M-m_1)^2$};
+    \draw[dashed,very thick] (axis cs:4900,2000) -- (axis cs:4900,6000);
+    \node[above] at (axis cs:4700,6000) {\tiny $(M-m_3)^2$};
+    \draw[red,dotted,very thick] (axis cs:3000,0) -- (axis cs:3000,9000);
+    \draw[red, very thick, <-] (axis cs:3000,1600) -- (axis cs:3500,1000) node[right] {$(m_{23}^2)_{min}$};
+    \draw[red, very thick, <-] (axis cs:3000,6500) -- (axis cs:3500,9000) node[right] {$(m_{23}^2)_{max}$};
+    \end{axis}
+\end{tikzpicture}
+\caption{A modern Dalitz plot with 1000~events distributed according to phase space. The populated area corresponds to the kinematically
+allowed regions.
+For illustration, the mass of the parent particle $M$ is 100~GeV. (left) Massless daughter particles; (right) the
+masses were chosen to be $m_1=1~$GeV, $m_2=10~$GeV, and $m_3=30$~GeV,
+as in Figure 5.11.}
+\end{figure}
+%
+%%%%%%%%%%%%%%%%   END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\end{document}

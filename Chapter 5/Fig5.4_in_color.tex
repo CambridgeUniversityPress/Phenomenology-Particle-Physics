@@ -1,0 +1,97 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% P3: Phenomenology of Particle Physics                         
+%%
+%% Author:  André Rubbia                   		 
+%%
+%% Figure 5.3 Comparison of the energy in the center-of-mass system (CMS),  in collider and fixed target (FT) modes.
+%%
+%% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+%% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or 
+%% send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[labelfont=bf]{caption}
+\usepackage{upgreek}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{ternary}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{external}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows}
+\usetikzlibrary{svg.path}
+\usetikzlibrary{shapes}
+\usetikzlibrary{arrows.meta}
+% define the arrow style
+\tikzset{
+    arrow/.style={
+        decoration={
+            markings,
+            mark=at position .5 with {
+                \arrow[#1, scale=1.5]{latex}
+            }
+        },
+        postaction={decorate},
+    }
+}
+\tikzset{
+    arrow flipped/.style={
+        decoration={
+            markings,
+            mark=at position .5 with {
+                \arrow[#1, scale=1.5]{latex reversed}
+            }
+        },
+        postaction={decorate},
+    }
+}
+\pgfkeys{/pgf/number format/.cd,1000 sep={}}\usepackage{pgfplots}
+
+\def\d{\mathrm{d}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%   FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htb]
+\begin{center}
+\begin{tikzpicture}
+\draw[dashed] (-2.5,0) -- (3.0,0);
+\node[draw, single arrow,
+              minimum height=10mm, minimum width=8mm,
+              single arrow head extend=4mm,
+              anchor=west, rotate=0] at (3.25,0) {$boost$};
+\draw[thick,->] (0,0) -- (2,1.5) node [right] {$D_1$};
+\draw[dashed, ->] (0,0) -- (-2,-1.5) node [left] {$D_2$};
+\node (X) at (2,1.5) {};
+\draw[blue,thick,->]  (X) -- +(38:1.) node [right] {$\beta$};
+\draw[red,->] (1,0) arc(0:38:1) node [right=0.5cm] {$\theta^\star$};
+\filldraw (0,0) circle (1mm) node [below] {$P$};
+\node at (-1.5,2.5) {\textbf{P frame}};
+\draw[red,->,thick] (0,0) -- +(0:2) node [below] {$p^{\star}_{||}$};
+\draw[red,->,thick] (0,0) -- +(90:1.5) node [right] {$p^{\star}_{\perp}$};
+\draw[dashed,->] (5,0) -- (13.5,0);
+\node at (6,2.5) {\textbf{Laboratory frame}};
+\draw[thick,->] (6,0) -- +(6,1.5) node [right] {$D_1$};
+\draw[red,->] (8,0) arc(0:14:2);
+\node[red] at (8.25,0.3) [right] {$\theta$};
+\draw[red,->,thick] (6,0) -- +(0:6) node [below] {$p_{||}$};
+\draw[red,->,thick] (6,0) -- +(90:1.5) node [right] {$p_{\perp}$};
+\draw[thick,blue,->] (6,0)--+(0:1) node [below] {$\beta_L$};
+\filldraw (6,0) circle (1mm) node [below] {$P$};
+\end{tikzpicture}
+\caption{Kinematics of a  decay in the center-of-mass and laboratory frames.}
+\end{center}
+\end{figure}
+%%%%%%%%%%%%%%%%   END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

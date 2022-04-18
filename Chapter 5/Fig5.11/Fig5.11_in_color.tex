@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% P3: Phenomenology of Particle Physics                         
+%%
+%% Author:  André Rubbia                   		 
+%%
+%% Figure 5.11 Ternary (also Dalitz) plot of a three-body decay.
+%%
+%% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+%% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or 
+%% send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[labelfont=bf]{caption}
+\usepackage{upgreek}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{ternary}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{external}
+
+\def\d{\mathrm{d}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%   FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htb]
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+\begin{ternaryaxis}[    title=$M\rightarrow $ 3 massless, xlabel=$T_1/Q$, ylabel=$T_2/Q$, zlabel=$T_3/Q$,
+	xticklabel={\pgfmathprintnumber\tick\%},yticklabel={\pgfmathprintnumber\tick\%},
+	zticklabel={\pgfmathprintnumber\tick\%}]
+    \addplot3[only marks, blue, mark=o] table [x=T1, y=T2, z=T3] {dalitz_3zero.dat};
+    \end{ternaryaxis}
+\end{tikzpicture}
+\hspace{0.5cm}
+\begin{tikzpicture}[scale=0.9]
+\begin{ternaryaxis}[    title=$M\rightarrow $ 3 massive, xlabel=$T_1/Q$, ylabel=$T_2/Q$, zlabel=$T_3/Q$,
+	xticklabel={\pgfmathprintnumber\tick\%},yticklabel={\pgfmathprintnumber\tick\%},
+	zticklabel={\pgfmathprintnumber\tick\%}]
+   \addplot3[only marks, blue, mark=o] table [x=T1, y=T2, z=T3] {dalitz_1_10_30.dat};
+    \end{ternaryaxis}
+\end{tikzpicture}
+\caption{Ternary (also Dalitz) plot of a three-body decay. The  circles represent 1000~events in the
+kinematically allowed region. Phase space predicts a uniform population in these regions.
+For illustration, the mass of the parent particle $M$ is 100~GeV. (left) Massless daughter
+particles; (right) the
+masses were chosen to be $m_1=1~$GeV, $m_2=10~$GeV, and $m_3=30$~GeV.}
+\end{center}
+\end{figure}
+%
+%%%%%%%%%%%%%%%%   END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
