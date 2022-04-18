@@ -1,0 +1,63 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% P3: Phenomenology of Particle Physics                         
+%%
+%% Author:  André Rubbia                   		 
+%%
+%% Figure 4.6 Illustration of the transformation of the wave function under  the rotation $R$ of the axes .
+%%
+%% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+%% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or 
+%% send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[labelfont=bf]{caption}
+\usepackage{upgreek}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{ternary}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{external}
+
+\def\d{\mathrm{d}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%   FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htb]
+    \centering
+    \begin{tikzpicture}
+        \draw[thick,->] (0,0) -- (4,0) node[right] {$x$};
+        \draw[thick,->] (0,0) -- (0,4) node[above] {$y$};a
+        \draw[dashed,thick,->] (0,0) -- +(60:4) node[left] {$y'$};
+        \draw[dashed,thick,->] (0,0) -- +(-30:4) node[right] {$x'$};
+        \draw[dashed] (2,0) -- (2,2);
+        \draw[dashed] (0,2) -- (2,2);
+        \filldraw (2,2) circle (1mm) node [right] {$\Psi(\vec x)$};
+%        \filldraw (2,2) circle (1mm) node [right] {$\phi(\vec x)$};
+        \draw[thick,->] (6,0) -- (10,0) node[right] {$x'$};
+        \draw[thick,->] (6,0) -- (6,4) node[above] {$y'$};
+        \draw[dashed] (6,2.73) -- (6.73,2.73);
+        \draw[dashed] (6.73,0) -- (6.73,2.73);
+        \filldraw (6.73,2.73) circle (1mm) node [right] {$\Psi'(\vec x\,') =
+        \Psi(R^{-1}\vec x\,')$};
+%        \filldraw (6.73,2.73) circle (1mm) node [right] {$\phi'(\vec x\,') =
+%        \phi(R^{-1}\vec x\,')$};
+        \draw[ultra thick,red,->] (0,3) arc(90:60:3);
+        \draw[ultra thick,red,->] (3,0) arc(0:-30:3);
+    \end{tikzpicture}
+    \caption{Illustration of the transformation of the wave function under
+    the rotation $R$ of the axes (note that we have
+    chosen the clockwise definition of the rotation).}
+\end{figure}
+%%%%%%%%%%%%%%%   END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\end{document}

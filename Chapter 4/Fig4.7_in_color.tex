@@ -1,0 +1,91 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% P3: Phenomenology of Particle Physics                         
+%%
+%% Author:  André Rubbia                   		 
+%%
+%% Figure 4.7 Sketch of the Stern--Gerlach experiment.
+%%
+%% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+%% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or 
+%% send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[labelfont=bf]{caption}
+\usepackage{upgreek}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{ternary}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{external}
+
+\usepackage{pst-3dplot}
+\usepackage{auto-pst-pdf}
+
+\def\d{\mathrm{d}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%   FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htb]
+\centering
+\psset{unit=0.75}
+\begin{pspicture}(-5,-1)(5,20)
+\psset{Alpha=30,Beta=20}
+%\pstThreeDCoor[xMin=-7,xMax=1,yMin=0,yMax=1,zMin=0,zMax=1]
+%%\psdot[dotscale=10](0,0)
+%% \pstThreeDCircle[ O p t i o n s ] ( c x , c y, c z ) ( u x , u y, u z ) ( v x , v y, v z )
+% back screen
+%\psset{linecolor=gray,linewidth=1pt,fillcolor=black!10,fillstyle=solid}
+\pstThreeDSquare(-7,-2.5,0)(0,5,0)(0,0,5)
+% magnet
+\psset{linecolor=blue,linewidth=1pt,fillstyle=none}
+\psBox[showInside=false](-2,-2,0){7}{4}{2}
+\psBox[showInside=false](-2,0,0){7}{2}{2}
+{
+\psset{linecolor=black,linewidth=1pt,fillstyle=solid}
+\pstThreeDSquare(-2,1,4)(7,0,0)(0,-1,2)
+\pstThreeDSquare(-2,1,4)(7,0,0)(0,1,2)
+}
+% trajectory
+{\psset{arrows=->,linewidth=3pt,fillstyle=none}
+\pstThreeDLine[linecolor=magenta, linewidth=3pt](6,0,2.5)(-6,0,2.5)
+}
+\psBox[showInside=false](-2,0,6){7}{2}{2}
+\psBox[showInside=false](-2,2,0){7}{4}{2}
+%% solenoid
+%% \pstIIIDCylinder(x,y,z){radius}{height}
+\psset{linecolor=black,linewidth=1pt}
+% source
+\pstThreeDSquare(5.7,0,2)(0,1,0)(0,0,1)
+\pstThreeDSquare(6,0,2)(0,1,0)(0,0,1)
+\psBox[showInside=false](6.2,0,2){1}{1}{1}
+% labels
+\pstPlanePut[plane=yz](-7,-1,0.5){Screen}
+\pstPlanePut[plane=yz](4,-1,0.5){S}
+\pstPlanePut[plane=yz](4,-1,5.5){N}
+\pstPlanePut[plane=yz](8,0,2){Source}
+% image
+\parametricplotThreeD[xPlotpoints=200,
+   linecolor=blue,%
+   linewidth=1.5pt,plotstyle=curve](0,4){%
+   -7 -2 t add 45 t mul sin 3 add}%degrees
+\parametricplotThreeD[xPlotpoints=200,
+   linecolor=blue,%
+   linewidth=1.5pt,plotstyle=curve](0,4){%
+   -7 -2 t add 45 t mul sin -1 mul 3 add }%degrees
+\end{pspicture}
+\caption{Sketch of the Stern--Gerlach experiment.}
+\end{figure}
+%%%%%%%%%%%%%%%  END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
