@@ -1,0 +1,67 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% P3: Phenomenology of Particle Physics                         
+%%
+%% Author:  André Rubbia                   		 
+%%
+%% Figure 11.9 The $e^+e^-\rightarrow \mu^+\mu^-$ scattering in the center-of-mass frame.
+%%
+%% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+%% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or 
+%% send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[labelfont=bf]{caption}
+\usepackage{upgreek}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{ternary}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{external}
+
+\def\d{\mathrm{d}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%% FIGURE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htb]
+\begin{center}
+\mbox{
+\begin{tikzpicture}
+\draw[dotted] (-5,0)  -- (0,0);
+\draw[dotted] (5,0)  -- (0,0);
+\draw[dotted] (0,0) -- +(30:4);
+\draw[dotted] (0,0) -- +(-150:4);
+\draw[red] (0,0) -- +(35:3.5);
+\draw[red] (0,0) -- +(25:3.5);
+\draw[rotate around={30:(3,1.75)},red] (0,0) +(30:3.5) ellipse (5pt and 9pt);
+\draw[thick,->,line width=1pt] (2,0) arc [radius=2, start angle =0, end angle=30];
+\draw (2,0.5) node[right] {$\theta$ = scattering angle};
+\draw[->,line width=1pt] (4,-2) -- (5,-2) node[right] {$\hat z$};
+\draw[->,line width=1pt] (4,-2) -- +(30:1) node[right] {$\hat u$};
+\draw[->,line width=2pt] (-5,0)  node[left] {$e^-$} -- (-2.5,0);
+\draw[->,line width=2pt] (5,0)  node[right] {$e^+$} -- (2.5,0);
+\draw[->,line width=2pt] (2.5,1.45)  -- +(30:2.5) node[right] {$\mu^-$};
+\draw[->,line width=2pt] (-2.5,-1.45)  -- +(-150:2.5) node[left] {$\mu^+$};
+\draw[->,thick, blue,rounded corners=4mm ] (-1,0.5) -- (0,0.5) -- (1,1);
+\draw[->,thick, blue,rounded corners=4mm ] (1,-0.5) -- (0,-0.5) -- (-1,-1);
+\filldraw [black] (0,0) circle (2pt);
+\draw[] (-5.5,3) node[right] {\textbf{Center-of-mass frame}};
+\draw[red] (2.8,2.3) node[right] {$\d\Omega$};
+\end{tikzpicture}
+}
+\caption{The $e^+e^-\rightarrow \mu^+\mu^-$ scattering in the center-of-mass frame. The  cone symbolizes
+the solid angle $\d\Omega = \d\cos\theta \d\phi$.}
+\end{center}
+\end{figure}
+%%%%%%%%%%%%%%%%% END FIGURE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\end{document}
