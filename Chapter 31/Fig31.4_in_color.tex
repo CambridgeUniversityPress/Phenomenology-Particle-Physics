@@ -1,0 +1,79 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% P3: Phenomenology of Particle Physics                         
+%%
+%% Author:  André Rubbia                   		 
+%%
+%% Figure 31.4 The variation of the coupling constants $\alpha_i$ as a function of the energy scale $Q$ for SUSY GUT.
+%%
+%% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+%% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or 
+%% send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt]{article}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\usepackage[
+    type={CC},
+    version={4.0}
+]{doclicense}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[labelfont=bf]{caption}
+\usepackage{upgreek}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{ternary}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{external}
+
+\def\d{\mathrm{d}}
+\setlength{\oddsidemargin}{-1.0cm}
+\setlength{\evensidemargin}{-1.0cm}
+\setlength{\textheight}{25cm}
+\setlength{\textwidth}{18cm}
+
+\pgfkeys{/pgf/number format/.cd,1000 sep={}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%   FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htb]
+	\centering
+\begin{tikzpicture}[scale=1.]
+\begin{semilogxaxis}[xmin=1, xmax=1e19,
+	xtick={1,1e3,1e7,1e11,1e15,1e19},
+	ymin=0, ymax=70,
+	title=SUSY GUT,
+	xlabel=Energy scale $Q$ (GeV),
+	ylabel=$1/\alpha_i$,
+	xmajorgrids=true,
+	ymajorgrids=true,
+	legend entries={$\alpha_1$,$\alpha_2$,$\alpha_3$},
+	legend pos = north east]
+	\addplot[domain=10:1e4,blue,very thick] {60-2*4*ln(x/91)/4/3.1415};
+	\addplot[domain=10:1e4,magenta,dashed,very thick] {30+2*3.3333*ln(x/91)/4/3.1415};
+	\addplot[domain=10:1e4,red,dashdotted,very thick] {8.5+2*7*ln(x/91)/4/3.1415};
+	\draw[blue, very thick] (axis cs:1e4,57) -- (axis cs:1e16,25);
+	\draw[magenta,dashed, very thick] (axis cs:1e4,32.5) -- (axis cs:1e16,25);
+	\draw[red,dashdotted, very thick] (axis cs:1e4,14) -- (axis cs:1e16,25);
+	\draw[black, dotted, very thick] (axis cs:1e16,25) -- (axis cs:1e19,28);
+\end{semilogxaxis}
+\end{tikzpicture}
+\caption{The variation of the coupling constants $\alpha_i$ as a function of the energy
+	scale $Q$ for SUSY GUT. The  energy scale is  shifted
+to higher values above $10^{15}$~GeV.}
+\end{figure}
+%
+%%%%%%%%%%%%%%%%   END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\vskip 5cm
+\doclicenseThis
+
+\end{document}
