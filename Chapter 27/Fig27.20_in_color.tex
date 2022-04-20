@@ -1,0 +1,83 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% P3: Phenomenology of Particle Physics                         
+%%
+%% Author:  André Rubbia                   		 
+%%
+%% Figure 27.20 Precision measurements of the $Z^0$ asymmetry parameter ${\cal A}_\tau$.
+%%
+%% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+%% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or 
+%% send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[labelfont=bf]{caption}
+\usepackage{upgreek}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{ternary}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{external}
+
+\def\d{\mathrm{d}}
+\setlength{\oddsidemargin}{-1.0cm}
+\setlength{\evensidemargin}{-1.0cm}
+\setlength{\textheight}{25cm}
+\setlength{\textwidth}{18cm}
+
+\pgfkeys{/pgf/number format/.cd,1000 sep={}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%   FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htb]
+ 	\centering
+		\begin{tikzpicture}[scale=1]
+%
+% Atau
+%
+\begin{axis}[
+    xbar,
+    width=10cm,
+    height=4cm,
+    title={Asymmetry parameter ${\cal A}_\tau$},
+    xlabel={${\cal A}_\tau$},
+    symbolic y coords={ybot,average,SLD,OPAL,L3,DELPHI,ALEPH,ytop},
+    ytick=data,
+    ymin=ybot,ymax=ytop,
+    xmin=0.1, xmax=0.2,
+     legend pos=north east,
+]
+\addplot[
+    color=blue,only marks,
+    mark=*,
+        error bars/.cd,
+    x dir=both, x explicit
+    ]
+    coordinates {
+    (0.1451,ALEPH)+-(0.00595399,0)
+    (0.1359,DELPHI)+-(0.00962601,0)
+    (0.1476,L3)+-(0.0107648,0)
+    (0.1456,OPAL)+-(0.0095,0)
+    (0.136,SLD)+-(0.015,0)
+    (0.143,average)+-(0.004,0)
+};
+    \draw[gray,fill,fill opacity=0.2] (axis cs:0.139,ybot) rectangle (axis cs:0.147,ytop);
+\end{axis}
+\end{tikzpicture}
+	\caption{Precision measurements of the $Z^0$ asymmetry parameter ${\cal A}_\tau$.
+		The average value is from the PDG.}
+\end{figure}
+%
+%%%%%%%%%%%%%%%%   END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+
+\end{document}
