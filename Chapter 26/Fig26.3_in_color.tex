@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% P3: Phenomenology of Particle Physics                         
+%%
+%% Author:  André Rubbia                   		 
+%%
+%% Figure 26.3 Differential cross-sections for the $\nu_{e} e^{-}$ and $\overline{\nu}_{e}	e^{-}$ charged-current scattering.
+%%
+%% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+%% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or 
+%% send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[labelfont=bf]{caption}
+\usepackage{upgreek}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{ternary}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{external}
+
+\def\d{\mathrm{d}}
+\setlength{\oddsidemargin}{-1.0cm}
+\setlength{\evensidemargin}{-1.0cm}
+\setlength{\textheight}{25cm}
+\setlength{\textwidth}{18cm}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%   FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htb]
+\centering
+\begin{tikzpicture}[scale=1.]
+\begin{axis}[xmin=0, xmax=1,
+	xtick={0,0.5,1},
+	ymin=0, ymax=1.2,
+	title=Charged current interaction,
+	xlabel=$y$,
+	ylabel=$\d\sigma/\d y$ in units of $G_F^2 s/\pi$,
+	xmajorgrids=true,
+	ymajorgrids=true,
+	legend entries={$\nu_e-e^-$,$\bar\nu_e-e^-$},
+]
+	\addplot[domain=0:1,blue,very thick] {1.0};
+	\addplot[domain=0:1,red,very thick, dashed] {(1.0-x)^2};
+\end{axis}
+\end{tikzpicture}
+	\caption{Differential cross-sections for the $\nu_{e} e^{-}$ and $\overline{\nu}_{e}
+	e^{-}$ charged-current scattering.}
+\end{figure}
+%
+%%%%%%%%%%%%%%%%   END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\end{document}
