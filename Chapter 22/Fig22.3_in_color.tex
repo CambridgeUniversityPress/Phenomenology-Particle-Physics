@@ -1,0 +1,94 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% P3: Phenomenology of Particle Physics                         
+%%
+%% Author:  André Rubbia                   		 
+%%
+%% Figure 22.3 $\beta$ disintegration of $^{60}\mathrm{Co}\rightarrow ^{60}\mathrm{Ni}^*+e^-+\bar \nu_e$.
+%%
+%% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+%% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or 
+%% send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[labelfont=bf]{caption}
+\usepackage{upgreek}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows}
+\usetikzlibrary{svg.path}
+\usetikzlibrary{shapes}
+\usetikzlibrary{arrows.meta}
+% define the arrow style
+\tikzset{
+    arrow/.style={
+        decoration={
+            markings,
+            mark=at position .5 with {
+                \arrow[#1, scale=1.5]{latex}
+            }
+        },
+        postaction={decorate},
+    }
+}
+\tikzset{
+    arrow flipped/.style={
+        decoration={
+            markings,
+            mark=at position .5 with {
+                \arrow[#1, scale=1.5]{latex reversed}
+            }
+        },
+        postaction={decorate},
+    }
+}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{ternary}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{external}
+
+\def\d{\mathrm{d}}
+\setlength{\oddsidemargin}{-1.0cm}
+\setlength{\evensidemargin}{-1.0cm}
+\setlength{\textheight}{25cm}
+\setlength{\textwidth}{18cm}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%   FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htb]
+\begin{center}
+\begin{tikzpicture}
+\draw[thick,->] (0,0)  -- (0,3) node [left] {$\vec B$};
+\draw[very thick,->] (1,0.5)  node [below] {$^{60}\mathrm{Co}$} -- (1,2.5) node [above] {$J=5$};
+\draw[->] (2,1.5)  -- (3,1.5);
+\draw[red,very thick,->] (4,1)  node [below] {$^{60}\mathrm{Ni}^*$} -- (4,2) node [above] {$J=4$};
+\draw[blue,very thick,->] (5.5,1.25)  node [below] {$e^-$} -- (5.5,1.75) node [above] {$+1/2$};
+\draw[magenta,very thick,->] (7,1.25)  node [below] {$\bar \nu$} -- (7,1.75) node [above] {$+1/2$};
+\draw[dashed] (9,0)  -- (9,3);
+\draw[blue, very thick,->] (11,1.25)  -- +(0,0.5);
+\draw[thick,->] (11.2,0.5) node [below] {$e^-$} -- +(0,2) node [above] {$\vec p_e$};
+\draw[blue, very thick,->] (14,1.25)  -- +(0,0.5);
+\draw[thick,->] (14.2,2.5) node [above] {$e^-$} -- +(0,-2) node [below] {$\vec p_e$};
+\node at (14.5,-0.5) {\bf enhanced};
+\node at (11.5,-0.5) {\bf suppressed};
+\end{tikzpicture}
+\end{center}
+\caption{$\beta$ disintegration of $^{60}\mathrm{Co}\rightarrow ^{60}\mathrm{Ni}^*+e^-+\bar \nu_e$:
+spin orientation (in thick lines) and flight direction (thinner lines on the right-hand side). The $\vec B$-field defines
+the axis of quantization. The electron can be emitted in the direction or opposite to the
+direction of the magnetic field.}
+\end{figure}
+%
+%%%%%%%%%%%%%%%%   END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\end{document}
