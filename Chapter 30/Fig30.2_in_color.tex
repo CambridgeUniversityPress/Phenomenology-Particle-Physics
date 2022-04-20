@@ -1,0 +1,95 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% P3: Phenomenology of Particle Physics                         
+%%
+%% Author:  André Rubbia                   		 
+%%
+%% Figure 30.2 Predicted fractions of $K^0$  and $\bar K^0$ as a function of the time $t$.
+%%
+%% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+%% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or 
+%% send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt]{article}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\usepackage[
+    type={CC},
+    version={4.0}
+]{doclicense}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[labelfont=bf]{caption}
+\usepackage{upgreek}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{ternary}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{external}
+
+\def\d{\mathrm{d}}
+\setlength{\oddsidemargin}{-1.0cm}
+\setlength{\evensidemargin}{-1.0cm}
+\setlength{\textheight}{25cm}
+\setlength{\textwidth}{18cm}
+
+\pgfkeys{/pgf/number format/.cd,1000 sep={}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%   FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htb]
+\begin{center}
+\begin{tikzpicture}[scale=1.]
+\begin{axis}[
+	width=0.7\textwidth,
+	height=0.7\textwidth,
+	xmin=0, xmax=12,
+	ymin=0, ymax=1,
+        xlabel=$\tau (10^{-10}~\mathrm{s})$,
+        ylabel=Fractions of $K^0$ or $\bar K^0$,
+        legend entries={$K^0$,
+        $\bar K^0$},
+        legend pos = outer north east]
+% 	GammaS = 1.12e10
+%	GammaL = 1.93e7
+%	deltamls = 0.535e10
+% k0
+% 		f = (math.exp(-GammaS*t)+math.exp(-GammaL*t)+2*math.cos(deltamls*t)*math.exp(-(GammaS+GammaL)/2*t))/4.0
+        \addplot[blue,thick, domain=0:5] {
+		(exp(-1.12*x)+exp(-1.93*x*1e-3)+2*cos(0.535*x/3.1415*180)*exp(-(1.12+1.93e-3)/2*x))/4.0
+		};
+% K0bar
+% 		f = (math.exp(-GammaS*t)+math.exp(-GammaL*t)-2*math.cos(deltamls*t)*math.exp(-(GammaS+GammaL)/2*t))/4.0
+        \addplot[magenta,thick, domain=0:12,samples=100,dashed] {
+(exp(-1.12*x)+exp(-1.93e-3*x)-2*cos(0.535*x/3.1415*180)*exp(-(1.12+1.93e-3)/2*x))/4.0		};
+
+%%
+        \addplot[blue,thick, domain=5:12] {
+		(exp(-1.93*x*1e-3)+2*cos(0.535*x/3.1415*180)*exp(-(1.12+1.93e-3)/2*x))/4.0
+		};
+
+	\node[above] at (axis cs:11,0.28) {$K^0_L$};
+	\node[above, blue] at (axis cs:1,0.8) {$K^0$};
+	\node[above, magenta] at (axis cs:1,0.15) {$\bar K^0$};
+\end{axis}
+\end{tikzpicture}
+\caption{Predicted fractions of $K^0$  and $\bar K^0$ as a function of the time $t$
+of an initially pure $K^0$ state, for
+$\Gamma_S = 1.12\times 10^{10}$~s$^{-1}$,
+$\Gamma_L = 1.93\times 10^{7}$~s$^{-1}$, and $\Delta m = 0.535\times 10^{10}$~s$^{-1}$.}
+\end{center}
+\end{figure}
+%
+%%%%%%%%%%%%%%%%   END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\vskip 5cm
+\doclicenseThis
+
+\end{document}

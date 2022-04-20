@@ -1,0 +1,94 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% P3: Phenomenology of Particle Physics                         
+%%
+%% Author:  André Rubbia                   		 
+%%
+%% Figure 30.13 Normal $\Delta m^2_{31}>0$ (NH) and inverted hierarchy $\Delta m^2_{31}<0$ (IH).
+%%
+%% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+%% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or 
+%% send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt]{article}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\usepackage[
+    type={CC},
+    version={4.0}
+]{doclicense}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[labelfont=bf]{caption}
+\usepackage{upgreek}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{ternary}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{external}
+
+\def\d{\mathrm{d}}
+\setlength{\oddsidemargin}{-1.0cm}
+\setlength{\evensidemargin}{-1.0cm}
+\setlength{\textheight}{25cm}
+\setlength{\textwidth}{18cm}
+
+\pgfkeys{/pgf/number format/.cd,1000 sep={}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%   FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure} [htb]
+	\setlength{\unitlength}{0.1mm}
+	\centering
+	\begin{picture}(1200,600)
+		\setlength{\unitlength}{0.1mm}
+		\put(-10,220){\makebox(0,0)[c]{
+
+		\setlength{\unitlength}{0.1mm}
+
+		\color{black}
+		\put(250,630){Normal}
+		\put(820,630){Inverted}
+
+		\thicklines
+		\multiput(150,160)(0,80){2}{\line(1,0){300}}
+		\put(470,154){$ m_{1}$}
+		\put(470,234){$ m_{2}$}
+		\put(120,160){\vector(0,1){80}}
+		\put(120,240){\vector(0,-1){80}}
+		\put(10,190){$\Delta m_{21}^{2}$}
+		\multiput(750,520)(0,80){2}{\line(1,0){300}}
+		\put(680,514){$ m_{1}$}
+		\put(680,594){$ m_{2}$}
+		\put(1080,520){\vector(0,1){80}}
+		\put(1080,600){\vector(0,-1){80}}
+		\put(1100,550){$\Delta m_{21}^{2}$}
+
+		\color{red}
+		\put(150,600){\line(1,0){300}}
+		\put(470,594){$ m_{3}$}
+		\put(750,160){\line(1,0){300}}
+		\put(680,154){$ m_{3}$}
+		\put(600,160){\vector(0,1){440}}
+		\put(600,600){\vector(0,-1){440}}
+		\put(490,380){$\Delta m_{31}^{2}$}
+
+			}}
+
+	\end{picture}
+\caption{\small Normal $\Delta m^2_{31}>0$ (NH) and inverted hierarchy $\Delta m^2_{31}<0$ (IH).}
+\end{figure}
+%
+%%%%%%%%%%%%%%%%   END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\vskip 5cm
+\doclicenseThis
+
+\end{document}

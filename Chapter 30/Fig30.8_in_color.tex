@@ -1,0 +1,91 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% P3: Phenomenology of Particle Physics                         
+%%
+%% Author:  André Rubbia                   		 
+%%
+%% Figure 30.8 The two flavor oscillation probabilities for appearance  $P(\nu_\mu\rightarrow \nu_e)$
+%% and survival $P(\nu_\mu\rightarrow \nu_\mu)$ as a function of the energy
+%%
+%% This work is licensed under the Creative Commons Attribution 4.0 International License. 
+%% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or 
+%% send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,10pt]{article}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\usepackage[
+    type={CC},
+    version={4.0}
+]{doclicense}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[labelfont=bf]{caption}
+\usepackage{upgreek}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepgfplotslibrary{ternary}
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{external}
+
+\def\d{\mathrm{d}}
+\setlength{\oddsidemargin}{-1.0cm}
+\setlength{\evensidemargin}{-1.0cm}
+\setlength{\textheight}{25cm}
+\setlength{\textwidth}{18cm}
+
+\pgfkeys{/pgf/number format/.cd,1000 sep={}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%   FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[htb]
+\begin{center}
+\begin{tikzpicture}[scale=1.]
+\begin{axis}[
+	width=0.7\textwidth,
+	height=0.4\textwidth,
+	xmin=0, xmax=4,
+	ymin=0, ymax=1,
+        title = {$\Delta m^2=0.003$~eV$^2$ and $\sin^2 2\theta = 0.8$},
+        xlabel=$E$ (GeV),
+        ylabel=Probability,
+  xmajorgrids=true, ymajorgrids=true,
+        legend entries={$\nu_\mu\rightarrow\nu_e$ at $L = 400$~km,
+        $\nu_\mu\rightarrow\nu_\mu$ at $L = 400$~km
+	},
+        legend pos = outer north east]
+        \addplot[red,thick, domain=0.5:4,samples=100] {
+		0.8*(sin(1.27*0.003*180/3.1415*400/x)^2)
+		};
+        \addplot[blue,thick, domain=0.5:4,samples=100,dashed] {
+		1-0.8*(sin(1.27*0.003*180/3.1415*400/x)^2)
+		};
+        \addplot[red,thick, domain=0.01:0.5,samples=1000] {
+		0.8*(sin(1.27*0.003*180/3.1415*400/x)^2)
+		};
+        \addplot[blue,thick, domain=0.01:0.5,samples=1000,dashed] {
+		1-0.8*(sin(1.27*0.003*180/3.1415*400/x)^2)
+		};
+	\draw[<->, black, thick, dashed] (axis cs:0.968,0) -- (axis cs:0.968,0.8);
+	\node[right,black] at (axis cs:1,0.5) {$\sin^2 2\theta$};
+\end{axis}
+\end{tikzpicture}
+\caption{The two flavor oscillation probabilities for appearance  $P(\nu_\mu\rightarrow \nu_e)$
+and survival $P(\nu_\mu\rightarrow \nu_\mu)$ as a function of the energy $E$ for
+a chosen set of parameters.}
+\end{center}
+\end{figure}
+%
+%%%%%%%%%%%%%%%%   END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+\vskip 5cm
+\doclicenseThis
+
+\end{document}
