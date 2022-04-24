@@ -12,6 +12,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper,10pt]{article}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\usepackage[
+    type={CC},
+    version={4.0}
+]{doclicense}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -61,7 +67,7 @@
 \begin{document}
 
 %%%%%%%%%%%%%%%   FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[tb]
+\begin{figure}[htb]
 \begin{center}
 \begin{tikzpicture}[scale=1]
 	\begin{scope}[shift={(0,0)}]
@@ -99,5 +105,7 @@
 \end{figure}
 %
 %%%%%%%%%%%%%%%   END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip 5cm
+\doclicenseThis
 
 \end{document}

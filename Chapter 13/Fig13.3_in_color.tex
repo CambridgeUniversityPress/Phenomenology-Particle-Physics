@@ -12,6 +12,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper,10pt]{article}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\usepackage[
+    type={CC},
+    version={4.0}
+]{doclicense}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -55,7 +61,6 @@
         \addplot [cyan,domain=-1:0.95, samples=75,no marks, very thick] {1e6*(1/137^2)*3.14*0.389*(3+x^2)^2/(2*(x-1)^2};
         \addplot [red,domain=0:0.99, samples=75,no marks, very thick, dashed] {1e6*(1/137^2)*3.14*0.389*(1+x^2)/(1-x^2)};
         \addplot [samples=75,blue, ,no marks, very thick, dotted] {1e6*(1/137^2)*3.14*0.389*(1+x^2)/2};
-%%%        \node[blue] at (axis cs: 0,1.25) {$e^+e^-\rightarrow\ell^+\ell^-$};
 \end{semilogyaxis}
 \end{tikzpicture}
 \caption{The center-of-mass energy squared normalized differential cross-sections $s\frac{\d\sigma}{\d\cos\theta}$ for
@@ -66,5 +71,7 @@ $e^+e^-\rightarrow \gamma\gamma$. Note the  logarithmic vertical scale.}
 \end{figure}
 %%%%%%%%%%%%%%%%% END FIGURE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
+\vskip 5cm
+\doclicenseThis
 
 \end{document}

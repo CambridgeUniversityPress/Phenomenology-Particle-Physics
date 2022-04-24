@@ -12,6 +12,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper,10pt]{article}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\usepackage[
+    type={CC},
+    version={4.0}
+]{doclicense}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -56,6 +62,10 @@
     }
 }
 \pgfkeys{/pgf/number format/.cd,1000 sep={}}\usepackage{pgfplots}
+\setlength{\textwidth}{168mm}
+\setlength{\parindent}{6mm}
+\setlength{\oddsidemargin}{-1.0cm}
+\setlength{\evensidemargin}{-1.0cm}
 
 \def\d{\mathrm{d}}
 
@@ -124,5 +134,7 @@ cases $\beta < \beta_L$, $\beta = \beta_L$, and $\beta > \beta_L$.}
 \end{center}
 \end{figure}
 %%%%%%%%%%%%%%%%   END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip 5cm
+\doclicenseThis
 
 \end{document}

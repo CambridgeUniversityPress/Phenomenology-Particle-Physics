@@ -13,6 +13,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper,10pt]{article}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\usepackage[
+    type={CC},
+    version={4.0}
+]{doclicense}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -79,7 +85,9 @@
 %
 %%%%%%%%%%%%%%%%   END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-
+\vskip 5cm
+\doclicenseThis
+\newpage
 The Python code used to generate the figure on the right is shown below and available on the repository.
 
 \begin{lstlisting}[language=Python]

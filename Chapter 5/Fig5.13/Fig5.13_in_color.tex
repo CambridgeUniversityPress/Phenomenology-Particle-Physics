@@ -3,7 +3,7 @@
 %%
 %% Author:  André Rubbia                   		 
 %%
-%% Figure 5.11 Ternary (also Dalitz) plot of a three-body decay.
+%% Figure 5.13 A modern Dalitz plot with 1000~events distributed according to phase space.
 %%
 %% This work is licensed under the Creative Commons Attribution 4.0 International License. 
 %% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or 
@@ -12,6 +12,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper,10pt]{article}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\usepackage[
+    type={CC},
+    version={4.0}
+]{doclicense}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -25,13 +31,19 @@
 \usepgfplotslibrary{ternary}
 \usepgfplotslibrary{fillbetween}
 \usepgfplotslibrary{external}
+\pgfkeys{/pgf/number format/.cd,1000 sep={}}
 
 \def\d{\mathrm{d}}
+
+\setlength{\textwidth}{168mm}
+\setlength{\parindent}{6mm}
+\setlength{\oddsidemargin}{-1.0cm}
+\setlength{\evensidemargin}{-1.0cm}
 
 \begin{document}
 
 %%%%%%%%%%%%%%%%   FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}[htb]
+\begin{figure}[h]
 \centering
 \begin{tikzpicture}[scale=1]
 \begin{axis}[    title=$M\rightarrow $ 3 massless,
@@ -67,5 +79,7 @@ as in Figure 5.11.}
 \end{figure}
 %
 %%%%%%%%%%%%%%%%   END FIGURE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip 5cm
+\doclicenseThis
 %
 \end{document}

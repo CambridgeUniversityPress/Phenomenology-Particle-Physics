@@ -12,6 +12,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[a4paper,10pt]{article}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\usepackage[
+    type={CC},
+    version={4.0}
+]{doclicense}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -46,8 +52,6 @@
     ylabel={${\d\sigma}/{\d\Omega }$ [nb/sr]},
     xmin=0, xmax=1,
     ymin=0.005, ymax=1,
-%    xtick={0,20,40,60,80,100,120,140,160},
-%    tick={1e0,1e1,1e2,1e3,1e4,1e5,1e6,1e7},
 	legend style={legend pos = outer north east},
     	ymajorgrids=true,
     	xmajorgrids=true,
@@ -148,5 +152,7 @@ to QED predictions (straight lines).}
 \end{figure}
 %%%%%%%%%%%%%%%%% END FIGURE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
+\vskip 5cm
+\doclicenseThis
 
 \end{document}
