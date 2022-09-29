@@ -64,16 +64,17 @@ area_oneGeV_in_mb = area_oneGeV_in_m2*1e3/1e-28
 print("Mass: 1 GeV = ", "{:.7e}".format(mass_oneGeV_in_kg), "kg")
 print("Length: 1 GeV^-1 = ", "{:.7e}".format(length_oneGeVexpominusone_in_m), "m")
 print("Time: 1 GeV^-1 = ", "{:.7e}".format(time_oneGeVexpominusone_in_s), "s")
+print("Energy 1 GeV = ", "{:.7e}".format(energy_oneGeV_in_J), "J")
 print("Momentum 1 GeV = ", "{:.7e}".format(momentum_oneGeV_in_kgms), "kg m/s")
 print("Force: 1 GeV^2 = ", "{:.7e}".format(force_oneGeV_in_N), "N")
-print("Cross-section: 1 GeV^2 = ", "{:.7f}".format(area_oneGeV_in_mb), "mb")
+print("Cross-section: 1 GeV^-2 = ", "{:.7f}".format(area_oneGeV_in_mb), "mb")
 
 print ("-----------")
 
 e_field_oneGeV2 = force_oneGeV_in_N/e
 b_field_oneGeV2 = e_field_oneGeV2/c
 
-print("E-field: 1 GeV = ", "{:.7e}".format(e_field_oneGeV2), "V/m")
-print("B-field: 1 GeV = ", "{:.7e}".format(b_field_oneGeV2), "T")
+print("E-field: 1 GeV^2 = ", "{:.7e}".format(e_field_oneGeV2), "V/m")
+print("B-field: 1 GeV^2 = ", "{:.7e}".format(b_field_oneGeV2), "T")
 
 
