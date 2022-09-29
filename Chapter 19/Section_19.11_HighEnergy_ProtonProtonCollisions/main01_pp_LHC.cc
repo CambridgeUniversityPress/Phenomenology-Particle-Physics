@@ -4,7 +4,7 @@
 %%
 %% Author:  André Rubbia
 %%
-%% Section 5.5 Energy-momentum 4-vector
+%% Section 19.11 High-energy proton-(anti)proton collisions
 %%
 %% This work is licensed under the Creative Commons Attribution 4.0 International License.
 %% To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or
